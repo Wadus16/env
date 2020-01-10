@@ -2,11 +2,20 @@ name: echo env
 
 on: push
 
+env: 
+  w: '[WORKFLOW] process, system, flow of work'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      fruit: 'Apple'
+      j: '[JOB] occupation, profession, trade'
     steps:
+    - name: Echo workflow-level environment variable
+      run: echo $w
     - name: Echo job-level environment variable
-      run: echo ${{ job.build.fruit }}
+      run: echo $j
+    - name: Echo step-level environment variable
+      env:
+        s: '[STEP] pace, stride, gait'
+      run: echo $s

@@ -1,0 +1,12 @@
+name: echo env
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      fruit: 'Apple'
+    steps:
+    - name: Echo job-level environment variable
+      run: echo ${{ job.build.fruit }}
